@@ -7,5 +7,4 @@ module.exports = {
         const dateString = year + "-" + ((month + 1) < 10 ? "0" + (month + 1) : (month + 1)) + "-" + day;
         return dateString
     }
-
 }

@@ -1,17 +1,17 @@
 const { Telegraf } = require('telegraf')
-const fs = require('fs')
-const axios = require('axios')
-// const { loadImage, createCanvas } = require('canvas')
-const path = require('path')
-require('dotenv').config()
+const fs = require('fs');
+const axios = require('axios');
+const path = require('path');
+require('dotenv').config();
 
-const User = require('./db/models/userModel')
+const User = require('./db/models/userModel');
 
-const { createIfNotExist } = require('./services/user.service.js')
-const { validateDateFormat } = require('./services/validation.service.js')
-const { createImageWithDate, createImageWithToday } = require('./services/image.service.js')
-const { todayDate } = require('./services/date.service')
-const sequelize = require('./db/index')
+const { createIfNotExist } = require('./services/user.service.js');
+const { validateDateFormat } = require('./services/validation.service.js');
+const { createImageWithToday, getDAta } = require('./services/image.service.js');
+const { todayDate } = require('./services/date.service');
+const sequelize = require('./db/index');
+
 ( async () => {
     try {
         await sequelize.authenticate();
@@ -22,9 +22,6 @@ const sequelize = require('./db/index')
 })()
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
-
-
-
 bot.start(async (ctx) => {
     const user = ctx.message.from;
 
@@ -79,7 +76,6 @@ bot.on('text', async (ctx) => {
     const text = ctx.message.text;
     validateDateFormat(text, ctx)
 })
-
 
 bot.launch()
 
