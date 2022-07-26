@@ -11,17 +11,16 @@ const { createIfNotExist } = require('./services/user.service.js')
 const { validateDateFormat } = require('./services/validation.service.js')
 const { createImageWithDate, createImageWithToday } = require('./services/image.service.js')
 const { todayDate } = require('./services/date.service')
-console.log(todayDate());
 const sequelize = require('./db/index')
-const start = async () => {
+( async () => {
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
-}
-start()
+})()
+
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 
