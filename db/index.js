@@ -1,10 +1,11 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config()
 const sequelize = new Sequelize({
-    database: "dafi9p2k70e1m3",
-    username: "xbpdwagsespcah",
-    password: "18b29dfbdf4f73a61936fa2303b0abf11f6a0b38470035ea08ce04af886250bb",
-    host: "ec2-52-49-120-150.eu-west-1.compute.amazonaws.com",
-    port: 5432,
+    database: process.env.DATA_BASE_NAME,
+    username: process.env.DATA_USERNAME,
+    password: process.env.DATA_PASSWORD,
+    host: process.env.DATA_HOST,
+    port: process.env.DATA_PORT,
     dialect: "postgres",
     dialectOptions: {
         ssl: {
