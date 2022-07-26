@@ -76,21 +76,6 @@ bot.hears(`Показати втрати станом на ${todayDate()}`, asyn
 
 })
 
-
-// bot.on('text', async (ctx) => {
-//     const text = ctx.message.text;
-//     if (validateDateFormat(text, ctx)) {
-//         let dateStartWar = new Date('2022-03-01')
-//         let dateRequest = new Date(text)
-//         if (dateRequest < dateStartWar) {
-//             ctx.reply('Початкова дата : 2022-03-01')
-//             return false
-//         }
-//     } else {
-//         ctx.reply('Початкова дата : 2022-03-01')
-//         return false
-//     }
-// })
 bot.on('text', async (ctx) => {
     const text = ctx.message.text;
     validateDateFormat(text, ctx)
