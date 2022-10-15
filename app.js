@@ -4,25 +4,25 @@ const axios = require("axios");
 const path = require("path");
 require("dotenv").config();
 
-const User = require("./db/models/userModel");
+// const User = require("./db/models/userModel");
 
-const { createIfNotExist } = require("./services/user.service.js");
+// const { createIfNotExist } = require("./services/user.service.js");
 const { validateDateFormat } = require("./services/validation.service.js");
 const {
   createImageWithToday,
   getDAta,
 } = require("./services/image.service.js");
 const { todayDate } = require("./services/date.service");
-const sequelize = require("./db/index");
+// const sequelize = require("./db/index");
 
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log("Connection has been established successfully.");
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
-})();
+// (async () => {
+//   try {
+//     await sequelize.authenticate();
+//     console.log("Connection has been established successfully.");
+//   } catch (error) {
+//     console.error("Unable to connect to the database:", error);
+//   }
+// })();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(async (ctx) => {
