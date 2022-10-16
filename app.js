@@ -28,7 +28,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(async (ctx) => {
   const user = ctx.message.from;
 
-  createIfNotExist(user);
+  // createIfNotExist(user);
   bot.telegram.sendMessage(
     ctx.chat.id,
     `Привіт ${ctx.message.from.username} 
